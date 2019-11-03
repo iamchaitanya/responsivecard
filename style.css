@@ -127,7 +127,7 @@ h3{
           background-color: lightgrey;
           width: 100vw;
           height: 7vh;
-          /* border: 2px solid red; */
+          z-index: 999;
       }
       .nav-links li{
           margin: 5px;
