@@ -8,7 +8,7 @@ nav{
     display: flex;
     width: 100%;
    margin: 0 auto;
-   background-color: pink;
+   /* background-color: pink; */
    min-height: 7vh;
    align-items: center;
    font-size: 20px;
@@ -35,16 +35,29 @@ nav .nav-links{
     text-decoration: none;
 }
 
+.swiper-slide img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.card img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
 .tournaments{
     display: flex;
     width: 80%;
     margin: 0 auto;
     justify-content: center;
     align-items: center;
+    /* border: 2px solid rgb    (13, 236, 125); */
 
 }
 
 .card{
+    
     border: 2px solid red;
     margin: 5px;
     padding: 5px;
@@ -69,7 +82,7 @@ h3{
 
 
 .slider{
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
     height: 300px;
 }
 
@@ -107,6 +120,44 @@ h3{
       justify-content: center;
   }
 
+   /* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  } 
+
   @media only screen and (max-width:600px){
       .tournaments{
           flex-direction: column;
@@ -132,6 +183,10 @@ h3{
       .nav-links li{
           margin: 5px;
           padding: 5px;
+      }
+
+      .card{
+          width: 100%;
       }
       footer{
           margin-bottom: 7vh;
