@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Sample FirebaseUI App</title>
+    <!-- *******************************************************************************************
+       * TODO(DEVELOPER): Paste the initialization snippet from:
+       * Firebase Console > Overview > Add Firebase to your web app. *
+       ***************************************************************************************** -->
+       <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
+       
+       <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#available-libraries -->
+       
+       <script>
+         // Your web app's Firebase configuration
+         var firebaseConfig = {
+           apiKey: "AIzaSyBlNYMh00lZFE-mi1X74JplFjmdgZf2Z0A",
+           authDomain: "lastone-f1949.firebaseapp.com",
+           databaseURL: "https://lastone-f1949.firebaseio.com",
+           projectId: "lastone-f1949",
+           storageBucket: "lastone-f1949.appspot.com",
+           messagingSenderId: "427238214738",
+           appId: "1:427238214738:web:2b88f6e21e83693db5638b"
+         };
+         // Initialize Firebase
+         firebase.initializeApp(firebaseConfig);
+       
+         const db = firebase.firestore();
+       
+       </script>
+           
+    <script type="text/javascript">
+      initApp = function() {
+        firebase.auth().onAuthStateChanged(function(user) {
+          if (user) {
+            // User is signed in.
+            var displayName = user.displayName;
+            var email = user.email;
+            var emailVerified = user.emailVerified;
+            var photoURL = user.photoURL;
+            var uid = user.uid;
+            var phoneNumber = user.phoneNumber;
+            var providerData = user.providerData;
+            user.getIdToken().then(function(accessToken) {
+              document.getElementById('sign-in-status').textContent = 'Signed in';
+              document.getElementById('sign-in').textContent = 'Sign out';
+              document.getElementById('account-details').textContent = JSON.stringify({
+                displayName: displayName,
+                email: email,
+                emailVerified: emailVerified,
+                phoneNumber: phoneNumber,
+                photoURL: photoURL,
+                uid: uid,
+                accessToken: accessToken,
+                providerData: providerData
+              }, null, '  ');
+            });
+          } else {
+            // User is signed out.
+            document.getElementById('sign-in-status').textContent = 'Signed out';
+            document.getElementById('sign-in').textContent = 'Sign in';
+            document.getElementById('account-details').textContent = 'null';
+          }
+        }, function(error) {
+          console.log(error);
+        });
+      };
+
+      window.addEventListener('load', function() {
+        initApp();
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Welcome to My Awesome App</h1>
+    <div id="sign-in-status"></div>
+    <div id="sign-in"></div>
+    <pre id="account-details"></pre>
+  </body>
+</html>
